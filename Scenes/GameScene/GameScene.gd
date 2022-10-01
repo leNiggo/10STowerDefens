@@ -13,18 +13,15 @@ func _ready():
 	map_node = get_node("/root/LevelOne") # Replace this with an variable so it can be used to multiple maps
 	spawn_enemy()
 	for i in get_tree().get_nodes_in_group('build_turrets'):
-		var callable = Callable(self, 'initiate_build_mode')
-		callable.call(i.name)
-		i.connect("pressed", callable)
-		
+		i.pressed.connect(initiate_build_mode.bind(i.name))
+
 	pass
 
 
-func initiate_build_mode(tower_type: String): 
+func initiate_build_mode(tower_type: StringName): 
 	build_type = tower_type
 	build_mode = true;
 	get_parent().get_node('BuildTurretUi').set_tower_preview(build_type, get_global_mouse_position())
-	get_node('UI')
 	pass
 
 

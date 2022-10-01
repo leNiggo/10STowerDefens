@@ -16,7 +16,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="BuildButtonsContainer" type="HBoxContainer" parent="BuildTurretUi"]
-layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -25,36 +24,32 @@ offset_top = -100.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="BuildSingleGunTurret" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
+[node name="TowerOneGun" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
 custom_minimum_size = Vector2i(100, 100)
-layout_mode = 2
 offset_right = 100.0
 offset_bottom = 100.0
 size_flags_horizontal = 0
 texture_normal = ExtResource("1_fjq8f")
 stretch_mode = 0
 
-[node name="BuildDoubbleGunTurret" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
+[node name="TowerTwoGuns" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
 custom_minimum_size = Vector2i(100, 100)
-layout_mode = 2
 offset_left = 104.0
 offset_right = 204.0
 offset_bottom = 100.0
 texture_normal = ExtResource("2_e77fh")
 stretch_mode = 0
 
-[node name="BuildMissleTurret" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
+[node name="TowerMissle" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
 custom_minimum_size = Vector2i(100, 100)
-layout_mode = 2
 offset_left = 208.0
 offset_right = 308.0
 offset_bottom = 100.0
 texture_normal = ExtResource("3_yx0xo")
 stretch_mode = 0
 
-[node name="BuildDoubbleMissleTurret" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
+[node name="TowerTwoMissle" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
 custom_minimum_size = Vector2i(100, 100)
-layout_mode = 2
 offset_left = 312.0
 offset_right = 412.0
 offset_bottom = 100.0

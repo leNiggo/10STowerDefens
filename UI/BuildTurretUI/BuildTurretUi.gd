@@ -10,4 +10,5 @@ func set_tower_preview(tower_type: String, mouse_position: Vector2):
 	controll.position = mouse_position
 	controll.set_name("TowerPreview")
 	add_child(controll, true)
+	move_child(get_node("TowerPreview"), 0)
 	pass
