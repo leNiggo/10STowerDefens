@@ -3,7 +3,7 @@ extends Node2D
 var map_node: Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	map_node = get_node("/root/LevelOne")
+	map_node = get_node("/root/LevelOne") # Replace this with an variable so it can be used to multiple maps
 	spawn_enemy()
 	pass # Replace with function body.
 
