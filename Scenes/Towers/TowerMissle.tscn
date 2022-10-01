@@ -1,16 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4snieo81xm2j"]
+[gd_scene load_steps=4 format=3 uid="uid://b4snieo81xm2j"]
 
+[ext_resource type="Script" path="res://Scenes/Towers/TowerMissle.gd" id="1_aqvgh"]
 [ext_resource type="Texture2D" uid="uid://deujyoertkl78" path="res://Textures/Tower/Base/TowerBase.png" id="1_pb4ro"]
 [ext_resource type="Texture2D" uid="uid://ce3wkhi1ahbvx" path="res://Textures/Tower/Base/TowerMissle.png" id="2_yrjwc"]
 
 [node name="TowerMissle" type="Node2D"]
+script = ExtResource("1_aqvgh")
 
 [node name="Base" type="Sprite2D" parent="."]
 texture = ExtResource("1_pb4ro")
 
-[node name="TowerMissle" type="Sprite2D" parent="."]
+[node name="Turret" type="Sprite2D" parent="."]
 texture = ExtResource("2_yrjwc")
 offset = Vector2(1, 0)
 
-[node name="Missle" type="Marker2D" parent="TowerMissle"]
+[node name="Missle" type="Marker2D" parent="Turret"]
 position = Vector2(8, 0)

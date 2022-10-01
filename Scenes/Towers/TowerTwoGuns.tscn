@@ -1,19 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6olssekltyot"]
+[gd_scene load_steps=4 format=3 uid="uid://b6olssekltyot"]
 
 [ext_resource type="Texture2D" uid="uid://deujyoertkl78" path="res://Textures/Tower/Base/TowerBase.png" id="1_m777p"]
+[ext_resource type="Script" path="res://Scenes/Towers/TowerTwoGuns.gd" id="1_meq3k"]
 [ext_resource type="Texture2D" uid="uid://btj63dwi7auj6" path="res://Textures/Tower/Base/TowerTwoGuns.png" id="2_62ft8"]
 
 [node name="TowerTwoGuns" type="Node2D"]
+script = ExtResource("1_meq3k")
 
 [node name="Base" type="Sprite2D" parent="."]
 texture = ExtResource("1_m777p")
 
-[node name="TwoGuns" type="Sprite2D" parent="."]
+[node name="Turret" type="Sprite2D" parent="."]
 texture = ExtResource("2_62ft8")
 offset = Vector2(1, 0)
 
-[node name="RightMarker" type="Marker2D" parent="TwoGuns"]
+[node name="RightMarker" type="Marker2D" parent="Turret"]
 position = Vector2(8, 3.5)
 
-[node name="LeftMarker" type="Marker2D" parent="TwoGuns"]
+[node name="LeftMarker" type="Marker2D" parent="Turret"]
 position = Vector2(8, -3.5)
