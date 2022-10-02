@@ -5,6 +5,7 @@ var turret: Sprite2D;
 var enemys: Array[PathFollow2D] = [];
 var build: bool = true;
 var enemy: PathFollow2D;
+var is_ready: bool = true;
 
 func _ready():
 	turret = get_node("Turret")
@@ -15,6 +16,9 @@ func _physics_process(_delta):
 	if build and enemys.size() > 0:
 		select_enemy()
 		turn_turret()
+		if is_ready:
+			fire()
+
 	else:
 		enemy = null;
 	pass
@@ -34,9 +38,16 @@ func select_enemy() -> void:
 
 func _on_range_body_entered(body: Node):
 	enemys.append(body.get_parent())
-	pass # Replace with function body.
+	pass
 
 
 func _on_range_body_exited(body: Node):
 	enemys.erase(body.get_parent())
-	pass # Replace with function body.
+	pass
+
+func fire(): 
+	is_ready = false;
+	enemy.on_hit(20.0)
+	await(get_tree().create_timer(1).timeout)
+	is_ready = true;
+	pass

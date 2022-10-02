@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbuosjpaxdcap"]
+[gd_scene load_steps=10 format=3 uid="uid://bbuosjpaxdcap"]
 
 [ext_resource type="Texture2D" uid="uid://ds6nlbyi1jetl" path="res://Textures/Atlas/Terrain/Terrain.png" id="1_chlc7"]
 [ext_resource type="PackedScene" uid="uid://cjc7v24r0fje2" path="res://Scenes/GameScene/GameScene.tscn" id="2_5n0ok"]
 [ext_resource type="PackedScene" uid="uid://blf5cfovtqlvq" path="res://Scenes/Towers/TowerOneGun.tscn" id="3_0g42t"]
+[ext_resource type="PackedScene" uid="uid://bufbpvqll3fgx" path="res://Scenes/Spawner/Spawner.tscn" id="5_eb1ln"]
 [ext_resource type="PackedScene" uid="uid://tuo55jchdw7f" path="res://UI/BuildTurretUI/BuildTurretUi.tscn" id="5_jvvv0"]
+[ext_resource type="PackedScene" uid="uid://cje05l8vlmb54" path="res://Scenes/Enemy/Enemy.tscn" id="6_w55v8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ph4iv"]
 texture = ExtResource("1_chlc7")
@@ -175,3 +177,7 @@ curve = SubResource("Curve2D_604gd")
 position = Vector2(225, 302)
 
 [node name="Towers" type="Node2D" parent="."]
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("path") instance=ExtResource("5_eb1ln")]
+path = NodePath("../EnemyPath")
+enemy = ExtResource("6_w55v8")

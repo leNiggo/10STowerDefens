@@ -30,7 +30,6 @@ func _process(_delta):
 	pass
 
 func _input(event: InputEvent):
-	print("UNHANDELT INPUT")
 	if event.is_action_released("ui_cancel") and build_mode == true:
 		cancel_build_mode()
 	if event.is_action_released("ui_accept") and build_mode == true:

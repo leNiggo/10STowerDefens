@@ -19,12 +19,12 @@ func _physics_process(_delta):
 	progress += _delta * speed
 	pass
 
-func on_hit(hit: int):
+func on_hit(hit: float):
 	live -= hit;
 	health_bar.value = live;
-	if live < 0:
-		on_destroy()
-	pass
+	print(live)
+	print(hit);
+	if live <= 0:
+		self.queue_free()
 
-func on_destroy():
-	self.queue_free()
+	pass

@@ -10,7 +10,6 @@ size = Vector2(31, 34)
 [node name="Enime" type="PathFollow2D"]
 rotates = false
 script = ExtResource("1_m0066")
-live = 0.0
 
 [node name="EnemyChar" type="CharacterBody2D" parent="."]
 
