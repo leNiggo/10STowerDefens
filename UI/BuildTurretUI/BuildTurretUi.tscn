@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://tuo55jchdw7f"]
 
-[ext_resource type="Texture2D" uid="uid://b5pttemow4x46" path="res://Textures/Tower/Base/TowerOneGun.png" id="1_fjq8f"]
 [ext_resource type="Script" path="res://UI/BuildTurretUI/BuildTurretUi.gd" id="1_nxxbw"]
-[ext_resource type="Texture2D" uid="uid://btj63dwi7auj6" path="res://Textures/Tower/Base/TowerTwoGuns.png" id="2_e77fh"]
-[ext_resource type="Texture2D" uid="uid://ce3wkhi1ahbvx" path="res://Textures/Tower/Base/TowerMissle.png" id="3_yx0xo"]
-[ext_resource type="Texture2D" uid="uid://c0h8isn3fshu2" path="res://Textures/Tower/Base/TowerTwoMissle.png" id="4_1hkp4"]
+[ext_resource type="Texture2D" uid="uid://cpkxqdqsyab5d" path="res://Textures/Tower/Base/TowerOneGunBtn.png" id="2_emc5t"]
+[ext_resource type="Texture2D" uid="uid://cglhkpb0cvls4" path="res://Textures/Tower/Base/TowerTwoGunBtn.png" id="3_ewlyw"]
+[ext_resource type="Texture2D" uid="uid://bclgyvlm03sk6" path="res://Textures/Tower/Base/TowerMissleBtn.png" id="4_u1q8j"]
+[ext_resource type="Texture2D" uid="uid://5qrr6l7ew0ix" path="res://Textures/Tower/Base/TowerTwoMissleBtn.png" id="5_vtffw"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_nxxbw")
@@ -18,42 +18,49 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BuildButtonsContainer" type="HBoxContainer" parent="BuildTurretUi"]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -100.0
+offset_right = -677.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 25
 
 [node name="TowerOneGun" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
-custom_minimum_size = Vector2i(100, 100)
-offset_right = 100.0
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_right = 50.0
 offset_bottom = 100.0
 size_flags_horizontal = 0
-texture_normal = ExtResource("1_fjq8f")
-stretch_mode = 0
+texture_normal = ExtResource("2_emc5t")
+stretch_mode = 5
 
 [node name="TowerTwoGuns" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
-custom_minimum_size = Vector2i(100, 100)
-offset_left = 104.0
-offset_right = 204.0
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_left = 75.0
+offset_right = 125.0
 offset_bottom = 100.0
-texture_normal = ExtResource("2_e77fh")
-stretch_mode = 0
+texture_normal = ExtResource("3_ewlyw")
+stretch_mode = 5
 
 [node name="TowerMissle" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
-custom_minimum_size = Vector2i(100, 100)
-offset_left = 208.0
-offset_right = 308.0
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_left = 150.0
+offset_right = 200.0
 offset_bottom = 100.0
-texture_normal = ExtResource("3_yx0xo")
-stretch_mode = 0
+texture_normal = ExtResource("4_u1q8j")
+stretch_mode = 5
 
 [node name="TowerTwoMissle" type="TextureButton" parent="BuildTurretUi/BuildButtonsContainer" groups=["build_turrets"]]
-custom_minimum_size = Vector2i(100, 100)
-offset_left = 312.0
-offset_right = 412.0
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_left = 225.0
+offset_right = 275.0
 offset_bottom = 100.0
-texture_normal = ExtResource("4_1hkp4")
-stretch_mode = 0
+texture_normal = ExtResource("5_vtffw")
+stretch_mode = 5
