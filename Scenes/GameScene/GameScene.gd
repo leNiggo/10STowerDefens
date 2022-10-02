@@ -7,12 +7,13 @@ var build_valid: bool = false;
 var build_location: Vector2;
 var build_type: String;
 
+@onready var player: Control = $Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	map_node = get_node("/root/LevelOne") # Replace this with an variable so it can be used to multiple maps
 	for i in get_tree().get_nodes_in_group('build_turrets'):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
-
 	pass
 
 
@@ -44,7 +45,7 @@ func update_tower_preview() -> void:
 	var current_tile: Vector2i = tile_node.local_to_map(mouse_pos);
 	var tile_pos: Vector2 = tile_node.map_to_local(current_tile);
 
-	if tile_node.get_cell_source_id(1,current_tile) == -1:
+	if tile_node.get_cell_source_id(0,current_tile) != -1:
 		ui_node.update_tower_preview(mouse_pos, Color.GREEN)
 		build_valid = true;
 		build_location = tile_pos;
