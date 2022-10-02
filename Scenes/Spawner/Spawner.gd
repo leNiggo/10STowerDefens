@@ -4,7 +4,7 @@ var timer: Timer;
 @export var path: Path2D;
 @export var enemy: PackedScene;
 
-@export var increase_per_spawn: int = 2;
+@export var increase_per_spawn: int = 1;
 
 var spawn_amount = 1;
 # Called when the node enters the scene tree for the first time.
