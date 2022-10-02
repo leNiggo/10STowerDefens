@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbuosjpaxdcap"]
+[gd_scene load_steps=11 format=3 uid="uid://bbuosjpaxdcap"]
 
 [ext_resource type="Texture2D" uid="uid://ds6nlbyi1jetl" path="res://Textures/Atlas/Terrain/Terrain.png" id="1_chlc7"]
+[ext_resource type="PackedScene" uid="uid://c2twe0udvg626" path="res://Scenes/Player/Player.tscn" id="1_ec6hi"]
 [ext_resource type="PackedScene" uid="uid://cjc7v24r0fje2" path="res://Scenes/GameScene/GameScene.tscn" id="2_5n0ok"]
 [ext_resource type="PackedScene" uid="uid://blf5cfovtqlvq" path="res://Scenes/Towers/TowerOneGun.tscn" id="3_0g42t"]
 [ext_resource type="PackedScene" uid="uid://bufbpvqll3fgx" path="res://Scenes/Spawner/Spawner.tscn" id="5_eb1ln"]
@@ -171,8 +172,6 @@ format = 2
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_604gd")
 
-[node name="BuildTurretUi" parent="." instance=ExtResource("5_jvvv0")]
-
 [node name="TowerOneGun" parent="." instance=ExtResource("3_0g42t")]
 position = Vector2(225, 302)
 
@@ -181,3 +180,17 @@ position = Vector2(225, 302)
 [node name="Spawner" parent="." node_paths=PackedStringArray("path") instance=ExtResource("5_eb1ln")]
 path = NodePath("../EnemyPath")
 enemy = ExtResource("6_w55v8")
+
+[node name="BuildTurretUi" parent="." instance=ExtResource("5_jvvv0")]
+
+[node name="Player" parent="." instance=ExtResource("1_ec6hi")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1100.0
+offset_right = 1100.0
+grow_horizontal = 1
+grow_vertical = 1
+pivot_offset = Vector2(1000, 1000)
+size_flags_horizontal = 3
+size_flags_vertical = 3

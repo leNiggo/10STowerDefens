@@ -1,15 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://cje05l8vlmb54"]
+[gd_scene load_steps=10 format=3 uid="uid://cje05l8vlmb54"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/Enemy.gd" id="1_m0066"]
+[ext_resource type="Shader" path="res://Scenes/Enemy/Enemy.gdshader" id="1_ug4fi"]
 [ext_resource type="Texture2D" uid="uid://chy3xxppgd5r0" path="res://Textures/Enemie/Enime.png" id="2_k3fw8"]
 [ext_resource type="Texture2D" uid="uid://byle1jgxuuo24" path="res://Textures/EnemyHealthBar/HealthBar.png" id="3_irtcs"]
+
+[sub_resource type="Gradient" id="Gradient_5lriw"]
+colors = PackedColorArray(0.997818, 0.861656, 0.0971745, 1, 0.875484, 0.0196431, 0.198175, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ct3bl"]
+gradient = SubResource("Gradient_5lriw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0r5un"]
+emission_shape = 1
+emission_sphere_radius = 7.05
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 0.2
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 26.75
+linear_accel_max = 87.9
+radial_accel_min = 33.12
+radial_accel_max = 77.71
+scale_min = 0.2
+scale_max = 6.0
+color_ramp = SubResource("GradientTexture1D_ct3bl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7ny3"]
 size = Vector2(31, 34)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bup7g"]
+shader = ExtResource("1_ug4fi")
+shader_parameter/flash = false
+shader_parameter/flash_color = Color(0.580392, 0, 0, 1)
+shader_parameter/flash_speed = 50.0
+shader_parameter/flash_strength = 0.5
+
 [node name="Enime" type="PathFollow2D"]
 rotates = false
+loop = false
 script = ExtResource("1_m0066")
+
+[node name="Explosion" type="GPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 500
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_0r5un")
 
 [node name="EnemyChar" type="CharacterBody2D" parent="."]
 
@@ -19,6 +59,7 @@ shape = SubResource("RectangleShape2D_f7ny3")
 one_way_collision = true
 
 [node name="EnemyTexture" type="Sprite2D" parent="EnemyChar"]
+material = SubResource("ShaderMaterial_bup7g")
 scale = Vector2(2, 2)
 texture = ExtResource("2_k3fw8")
 

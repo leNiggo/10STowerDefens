@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2twe0udvg626"]
+
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_r1bhm"]
+[ext_resource type="Texture2D" uid="uid://cgttkgig2jimu" path="res://Textures/PlayerHud/Euro.png" id="2_ulyg7"]
+[ext_resource type="Texture2D" uid="uid://bycj343u6t430" path="res://Textures/PlayerHud/Live.png" id="3_pehch"]
+
+[node name="Player" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1bhm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2i(0, 40)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="Money" type="TextureRect" parent="ColorRect/HBoxContainer"]
+offset_right = 32.0
+offset_bottom = 40.0
+texture = ExtResource("2_ulyg7")
+
+[node name="MoneyAmount" type="Label" parent="ColorRect/HBoxContainer"]
+offset_left = 52.0
+offset_top = 8.0
+offset_right = 53.0
+offset_bottom = 31.0
+
+[node name="Health" type="TextureRect" parent="ColorRect/HBoxContainer"]
+offset_left = 73.0
+offset_right = 105.0
+offset_bottom = 40.0
+texture = ExtResource("3_pehch")
+
+[node name="HealthCount" type="Label" parent="ColorRect/HBoxContainer"]
+offset_left = 125.0
+offset_top = 8.0
+offset_right = 126.0
+offset_bottom = 31.0

@@ -10,7 +10,6 @@ var build_type: String;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	map_node = get_node("/root/LevelOne") # Replace this with an variable so it can be used to multiple maps
-	spawn_enemy()
 	for i in get_tree().get_nodes_in_group('build_turrets'):
 		i.pressed.connect(initiate_build_mode.bind(i.name))
 
@@ -35,12 +34,6 @@ func _input(event: InputEvent):
 	if event.is_action_released("ui_accept") and build_mode == true:
 		verify_and_build()
 	pass
-
-func spawn_enemy():
-	var new_enemy = preload("res://Scenes/Enemy/Enemy.tscn").instantiate()
-	map_node.get_node('EnemyPath').add_child(new_enemy, true)
-	pass
-
 
 func update_tower_preview() -> void:
 	var tile_node: TileMap = map_node.get_node("TileMap");
