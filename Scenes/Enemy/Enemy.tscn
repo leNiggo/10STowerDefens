@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cje05l8vlmb54"]
+[gd_scene load_steps=5 format=3 uid="uid://cje05l8vlmb54"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/Enemy.gd" id="1_m0066"]
 [ext_resource type="Texture2D" uid="uid://chy3xxppgd5r0" path="res://Textures/Enemie/Enime.png" id="2_k3fw8"]
+[ext_resource type="Texture2D" uid="uid://byle1jgxuuo24" path="res://Textures/EnemyHealthBar/HealthBar.png" id="3_irtcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7ny3"]
 size = Vector2(31, 34)
@@ -21,3 +22,14 @@ one_way_collision = true
 [node name="EnemyTexture" type="Sprite2D" parent="EnemyChar"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_k3fw8")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -25.0
+offset_right = 14.0
+offset_bottom = -20.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_irtcs")
+texture_progress = ExtResource("3_irtcs")
+tint_under = Color(0.184314, 0.184314, 0.184314, 1)
+tint_progress = Color(0.196078, 0.917647, 0, 1)
