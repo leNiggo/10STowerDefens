@@ -2,7 +2,7 @@ extends Node2D
 
 
 var turret: Sprite2D;
-var enemys: Array[Node2D] = [];
+var enemys: Array[PathFollow2D] = [];
 var build: bool = true;
 var enemy: PathFollow2D;
 
@@ -23,8 +23,8 @@ func _physics_process(_delta):
 func turn_turret() -> void:
 	turret.look_at(enemy.position)
 
-func select_enemy(): 
-	var enemy_progress_array = []
+func select_enemy() -> void: 
+	var enemy_progress_array: Array[float] = []
 	for e in enemys:
 		enemy_progress_array.append(e.progress)
 	var max_offset = enemy_progress_array.max()
