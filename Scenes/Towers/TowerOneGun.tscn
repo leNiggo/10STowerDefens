@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5pttemow4x46" path="res://Textures/Tower/Base/TowerOneGun.png" id="2_a87la"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cs4br"]
-radius = 150.0
+radius = 50.0
 
 [node name="TowerOneGun" type="Node2D"]
 script = ExtResource("1_fyr8c")

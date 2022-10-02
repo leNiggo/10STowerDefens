@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6olssekltyot"]
+[gd_scene load_steps=5 format=3 uid="uid://b6olssekltyot"]
 
 [ext_resource type="Texture2D" uid="uid://deujyoertkl78" path="res://Textures/Tower/Base/TowerBase.png" id="1_m777p"]
 [ext_resource type="Script" path="res://Scenes/Towers/TowerTwoGuns.gd" id="1_meq3k"]
 [ext_resource type="Texture2D" uid="uid://btj63dwi7auj6" path="res://Textures/Tower/Base/TowerTwoGuns.png" id="2_62ft8"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ttmui"]
+radius = 80.0
+
 [node name="TowerTwoGuns" type="Node2D"]
 script = ExtResource("1_meq3k")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_ttmui")
 
 [node name="Base" type="Sprite2D" parent="."]
 texture = ExtResource("1_m777p")
@@ -19,3 +27,6 @@ position = Vector2(8, 3.5)
 
 [node name="LeftMarker" type="Marker2D" parent="Turret"]
 position = Vector2(8, -3.5)
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
