@@ -7,7 +7,6 @@ var build_valid: bool = false;
 var build_location: Vector2;
 var build_type: String;
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	map_node = get_node("/root/LevelOne") # Replace this with an variable so it can be used to multiple maps
@@ -18,7 +17,7 @@ func _ready():
 	pass
 
 
-func initiate_build_mode(tower_type: StringName): 
+func initiate_build_mode(tower_type: StringName) -> void: 
 	build_type = tower_type
 	build_mode = true;
 	get_parent().get_node('BuildTurretUi').set_tower_preview(build_type, get_global_mouse_position())
@@ -30,6 +29,13 @@ func _process(_delta):
 		update_tower_preview()
 	pass
 
+func _input(event: InputEvent):
+	print("UNHANDELT INPUT")
+	if event.is_action_released("ui_cancel") and build_mode == true:
+		cancel_build_mode()
+	if event.is_action_released("ui_accept") and build_mode == true:
+		verify_and_build()
+	pass
 
 func spawn_enemy():
 	var new_enemy = preload("res://Scenes/Enemy/Enemy.tscn").instantiate()
@@ -37,7 +43,7 @@ func spawn_enemy():
 	pass
 
 
-func update_tower_preview():
+func update_tower_preview() -> void:
 	var tile_node: TileMap = map_node.get_node("TileMap");
 	var ui_node: CanvasLayer = get_parent().get_node("BuildTurretUi")
 
@@ -46,7 +52,7 @@ func update_tower_preview():
 	var current_tile: Vector2i = tile_node.local_to_map(mouse_pos);
 	var tile_pos: Vector2 = tile_node.map_to_local(current_tile);
 
-	if tile_node.get_cell_source_id(0,current_tile) == -1:
+	if tile_node.get_cell_source_id(1,current_tile) == -1:
 		ui_node.update_tower_preview(tile_pos, Color.GREEN)
 		build_valid = true;
 		build_location = tile_pos;
@@ -54,4 +60,21 @@ func update_tower_preview():
 	else:
 		ui_node.update_tower_preview(tile_pos, Color.RED)
 		build_valid = false;
+	pass
+
+func cancel_build_mode() -> void:
+	build_mode = false;
+	build_valid = false;
+
+	var tower_preview_node: Control = get_parent().get_node("BuildTurretUi/TowerPreview")
+	tower_preview_node.queue_free()
+	pass
+
+func verify_and_build():
+	if build_valid:
+		## Here we check later if the player has enough money
+		var new_tower_rec: PackedScene = load("res://Scenes/Towers/"+ build_type +".tscn");		
+		var new_tower = new_tower_rec.instantiate()
+		new_tower.position = build_location;
+		map_node.get_node("Towers").add_child(new_tower);
 	pass

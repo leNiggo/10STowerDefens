@@ -173,3 +173,5 @@ curve = SubResource("Curve2D_604gd")
 
 [node name="TowerOneGun" parent="." instance=ExtResource("3_0g42t")]
 position = Vector2(225, 302)
+
+[node name="Towers" type="Node2D" parent="."]

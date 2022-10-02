@@ -11,15 +11,12 @@ extends PathFollow2D
 func _ready():
 	health_bar.max_value = live
 	health_bar.value = live
-	print(health_bar.value)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	progress += _delta * speed
-	print(health_bar.value)
-
 	pass
 
 func on_hit(hit: int):
