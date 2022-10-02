@@ -47,11 +47,11 @@ func update_tower_preview():
 	var tile_pos: Vector2 = tile_node.map_to_local(current_tile);
 
 	if tile_node.get_cell_source_id(0,current_tile) == -1:
-		ui_node.update_tower_preview(tile_pos, "ad54ff3c")
+		ui_node.update_tower_preview(tile_pos, Color.GREEN)
 		build_valid = true;
 		build_location = tile_pos;
 
 	else:
-		ui_node.update_tower_preview(tile_pos, "adff45455")
+		ui_node.update_tower_preview(tile_pos, Color.RED)
 		build_valid = false;
 	pass

@@ -13,8 +13,9 @@ func set_tower_preview(tower_type: String, mouse_position: Vector2):
 	move_child(get_node("TowerPreview"), 0)
 	pass
 
-func update_tower_preview(new_pos: Vector2, color: String):
-	get_node("TowerPreview").rect_position = new_pos;
-	if get_node("TowerPreview/DragTower").modulate != Color(color):
-		get_node("TowerPreview/DragTower").modulate = Color(color);
+func update_tower_preview(new_pos: Vector2, color: Color):
+	var tower_preview_node: Control = get_node("TowerPreview")
+	tower_preview_node.position = new_pos
+	if get_node("TowerPreview/DragTower").modulate != color:
+		get_node("TowerPreview/DragTower").modulate = color;
 	pass
