@@ -26,6 +26,8 @@ func initiate_build_mode(tower_type: StringName):
 
 
 func _process(_delta):
+	if build_mode:
+		update_tower_preview()
 	pass
 
 
@@ -34,3 +36,22 @@ func spawn_enemy():
 	map_node.get_node('EnemyPath').add_child(new_enemy, true)
 	pass
 
+
+func update_tower_preview():
+	var tile_node: TileMap = map_node.get_node("TileMap");
+	var ui_node: CanvasLayer = get_parent().get_node("BuildTurretUi")
+
+
+	var mouse_pos: Vector2 = get_global_mouse_position();
+	var current_tile: Vector2i = tile_node.local_to_map(mouse_pos);
+	var tile_pos: Vector2 = tile_node.map_to_local(current_tile);
+
+	if tile_node.get_cell_source_id(0,current_tile) == -1:
+		ui_node.update_tower_preview(tile_pos, "ad54ff3c")
+		build_valid = true;
+		build_location = tile_pos;
+
+	else:
+		ui_node.update_tower_preview(tile_pos, "adff45455")
+		build_valid = false;
+	pass
