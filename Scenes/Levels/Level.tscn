@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbuosjpaxdcap"]
+[gd_scene load_steps=12 format=3 uid="uid://bbuosjpaxdcap"]
 
+[ext_resource type="Script" path="res://Scenes/Levels/Camera2d.gd" id="1_77n7f"]
 [ext_resource type="Texture2D" uid="uid://ds6nlbyi1jetl" path="res://Textures/Atlas/Terrain/Terrain.png" id="1_chlc7"]
 [ext_resource type="PackedScene" uid="uid://c2twe0udvg626" path="res://Scenes/Player/Player.tscn" id="1_ec6hi"]
 [ext_resource type="PackedScene" uid="uid://cjc7v24r0fje2" path="res://Scenes/GameScene/GameScene.tscn" id="2_5n0ok"]
@@ -158,6 +159,11 @@ _data = {
 point_count = 23
 
 [node name="LevelOne" type="Node2D"]
+
+[node name="Camera2d" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource("1_77n7f")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_o871b")

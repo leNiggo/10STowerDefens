@@ -19,7 +19,7 @@ func _ready():
 func initiate_build_mode(tower_type: StringName) -> void: 
 	build_type = tower_type
 	build_mode = true;
-	get_parent().get_node('BuildTurretUi').set_tower_preview(build_type, get_global_mouse_position())
+	get_parent().get_node('BuildTurretUi').set_tower_preview(build_type, get_local_mouse_position())
 	pass
 
 
@@ -40,17 +40,17 @@ func update_tower_preview() -> void:
 	var ui_node: CanvasLayer = get_parent().get_node("BuildTurretUi")
 
 
-	var mouse_pos: Vector2 = get_global_mouse_position();
+	var mouse_pos: Vector2 = get_local_mouse_position();
 	var current_tile: Vector2i = tile_node.local_to_map(mouse_pos);
 	var tile_pos: Vector2 = tile_node.map_to_local(current_tile);
 
 	if tile_node.get_cell_source_id(1,current_tile) == -1:
-		ui_node.update_tower_preview(tile_pos, Color.GREEN)
+		ui_node.update_tower_preview(mouse_pos, Color.GREEN)
 		build_valid = true;
 		build_location = tile_pos;
 
 	else:
-		ui_node.update_tower_preview(tile_pos, Color.RED)
+		ui_node.update_tower_preview(mouse_pos, Color.RED)
 		build_valid = false;
 	pass
 

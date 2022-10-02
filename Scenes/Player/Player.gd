@@ -34,5 +34,5 @@ func earn_money(amount: int):
 	pass
 
 func on_lose():
-	# Go To Loose scene!
+	get_tree().change_scene_to_file("res://Scenes/DeathScreen/DeathScreen.tscn")
 	pass
