@@ -32,6 +32,7 @@ color_ramp = SubResource("GradientTexture1D_ct3bl")
 size = Vector2(31, 34)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bup7g"]
+resource_local_to_scene = true
 shader = ExtResource("1_ug4fi")
 shader_parameter/flash = false
 shader_parameter/flash_color = Color(0.580392, 0, 0, 1)

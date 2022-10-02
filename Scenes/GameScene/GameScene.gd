@@ -68,5 +68,6 @@ func verify_and_build():
 		var new_tower_rec: PackedScene = load("res://Scenes/Towers/"+ build_type +".tscn");		
 		var new_tower = new_tower_rec.instantiate()
 		new_tower.position = build_location;
+		new_tower.turret_build()
 		map_node.get_node("Towers").add_child(new_tower);
 	pass

@@ -3,7 +3,7 @@ extends Node2D
 
 var turret: Sprite2D;
 var enemys: Array[PathFollow2D] = [];
-var build: bool = true;
+var build: bool = false;
 var enemy: PathFollow2D;
 var is_ready: bool = true;
 
@@ -50,4 +50,8 @@ func fire():
 	enemy.on_hit(20.0)
 	await(get_tree().create_timer(1).timeout)
 	is_ready = true;
+	pass
+
+func turret_build(): 
+	build = true;
 	pass
