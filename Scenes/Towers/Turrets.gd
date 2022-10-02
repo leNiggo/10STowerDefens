@@ -1,7 +1,10 @@
 extends Node2D
 
 
-var turret: Sprite2D
+var turret: Sprite2D;
+var enemys: Array[Node2D] = [];
+var build: bool = true;
+var enemy: PathFollow2D;
 
 func _ready():
 	turret = get_node("Turret")
@@ -9,12 +12,31 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-	turn_turret()
+	if build and enemys.size() > 0:
+		select_enemy()
+		turn_turret()
+	else:
+		enemy = null;
 	pass
 
 
+func turn_turret() -> void:
+	turret.look_at(enemy.position)
 
-func turn_turret():
-	# Tracking mouse position
-	var enemy_pos = get_global_mouse_position(); # Replace this with the enemy position
-	turret.look_at(enemy_pos)
+func select_enemy(): 
+	var enemy_progress_array = []
+	for e in enemys:
+		enemy_progress_array.append(e.progress)
+	var max_offset = enemy_progress_array.max()
+	var enemy_index = enemy_progress_array.find(max_offset)
+	enemy = enemys[enemy_index]
+	pass
+
+func _on_range_body_entered(body: Node):
+	enemys.append(body.get_parent())
+	pass # Replace with function body.
+
+
+func _on_range_body_exited(body: Node):
+	enemys.erase(body.get_parent())
+	pass # Replace with function body.

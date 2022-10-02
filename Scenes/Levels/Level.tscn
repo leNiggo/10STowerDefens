@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbuosjpaxdcap"]
+[gd_scene load_steps=8 format=3 uid="uid://bbuosjpaxdcap"]
 
 [ext_resource type="Texture2D" uid="uid://ds6nlbyi1jetl" path="res://Textures/Atlas/Terrain/Terrain.png" id="1_chlc7"]
 [ext_resource type="PackedScene" uid="uid://cjc7v24r0fje2" path="res://Scenes/GameScene/GameScene.tscn" id="2_5n0ok"]
+[ext_resource type="PackedScene" uid="uid://blf5cfovtqlvq" path="res://Scenes/Towers/TowerOneGun.tscn" id="3_0g42t"]
 [ext_resource type="PackedScene" uid="uid://tuo55jchdw7f" path="res://UI/BuildTurretUI/BuildTurretUi.tscn" id="5_jvvv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ph4iv"]
@@ -169,3 +170,6 @@ format = 2
 curve = SubResource("Curve2D_604gd")
 
 [node name="BuildTurretUi" parent="." instance=ExtResource("5_jvvv0")]
+
+[node name="TowerOneGun" parent="." instance=ExtResource("3_0g42t")]
+position = Vector2(225, 302)
